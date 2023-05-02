@@ -4,7 +4,7 @@
         <p><%= recipe.description %></p>
         <h3><%= recipe.public %></h3>
     <% end %>
-    <%= if can? :destroy, recipe %>
-        <%= button_to "Remove", recipe, method: ::delete, data: { confirm: "Are you sure?" }, class: "actions" %>
+    <% if can? :destroy, recipe %>
+        <%= button_to "Remove", recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "actions" %>
     <% end %>
 </div>

@@ -2,7 +2,7 @@
     <%= link_to recipe do%>
         <h1><%= recipe.name %></h1>
         <p><%= recipe.description %></p>
-        <h3><%= recipe.public %></h3>
+        <h3>Public: <%= recipe.plublic %></h3>
     <% end %>
     <% if can? :destroy, recipe %>
         <%= button_to "Remove", recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "actions" %>

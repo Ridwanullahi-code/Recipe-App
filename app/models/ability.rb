@@ -6,6 +6,8 @@ class Ability
 
     return unless user.present?
 
+    can :read, :all
     can :manage, Recipe, user: user
+    can :manage, Inventory, user: user
   end
 end

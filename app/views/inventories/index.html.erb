@@ -4,6 +4,12 @@
   <div id="inventories">
     <% @inventories.each do |inventory| %>
       <%= render inventory %>
+      <div class="show-inventory">
+        <%= link_to "Show this inventory", inventory, class: "action" %>
+      </div>
     <% end %>
+            <% if can? :destroy, inventory %>
+                <%= button_to "Remove", inventory, method: :delete, data: { confirm: "Are you sure?" }, class: "actions" %>
+            <% end %>
   </div>
 </div>

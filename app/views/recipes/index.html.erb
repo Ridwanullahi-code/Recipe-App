@@ -3,7 +3,7 @@
   <%= link_to "New recipe", new_recipe_path, class: "add-recipes" %>
   <div id="recipes">
     <% @recipes.each do |recipe| %>
-      <%= render recipe %>
+      <%= recipe.name %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="single-recipe">
-    <%= link_to recipe do%>
+    <%= link_to recipe do |reci|%>
         <div class="recipe-name">
             <h1><%= recipe.name %></h1>
             <% if can? :destroy, recipe %>
@@ -8,7 +8,7 @@
         </div>
     <div class="recipe-desc">
         <p><%= recipe.description %></p>
-        <h3><%= recipe.plublic %></h3>
+        <h3><%= recipe.public %></h3>
     </div>
     <% end %>
 

@@ -1,7 +1,7 @@
 <h1 class="inventories_header">Inventories</h1>
 <div class="inventory">
   <%= link_to "New Inventory", new_inventory_path, class: "add-inventories" %>
-  <div id="inventories">
+  <div class="inventories">
     <% @inventories.each do |inventory| %>
       <%= render inventory %>
       <div class="show-inventory">

@@ -433,6 +433,7 @@ Processing by Devise::SessionsController#new as TURBO_STREAM
 Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4368)
 
 
+<<<<<<< HEAD
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mInventory Create (2.6ms)[0m  [1m[32mINSERT INTO "inventories" ("user_id", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["created_at", "2023-05-03 08:06:39.269858"], ["updated_at", "2023-05-03 08:06:39.269858"], ["name", "My new Inventory"]]
@@ -790,6 +791,41 @@ Started GET "/inventories/1" for 127.0.0.1 at 2023-05-03 11:20:22 +0300
 AbstractController::ActionNotFound (The action 'show' could not be found for InventoriesController):
   
 actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+=======
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:42:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 103ms (ActiveRecord: 0.9ms | Allocations: 28939)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.4.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
 actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
 actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
 actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
@@ -849,6 +885,7 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/inventories" for 127.0.0.1 at 2023-05-03 11:20:24 +0300
 Processing by InventoriesController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
@@ -971,6 +1008,16 @@ Completed 406 Not Acceptable in 6ms (ActiveRecord: 0.1ms | Allocations: 2725)
 
   
 ActionController::MissingExactTemplate (InventoriesController#new is missing a template for request formats: text/html):
+=======
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:42:10 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.1ms | Allocations: 1843)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
   
 actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
 actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
@@ -1054,6 +1101,7 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/inventories" for 127.0.0.1 at 2023-05-04 08:11:32 +0300
 Processing by InventoriesController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
@@ -1088,6 +1136,40 @@ Started DELETE "/inventories/1" for 127.0.0.1 at 2023-05-04 08:11:38 +0300
 AbstractController::ActionNotFound (The action 'destroy' could not be found for InventoriesController):
   
 actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+=======
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:44:29 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 15ms (ActiveRecord: 1.5ms | Allocations: 8299)
+
+
+  
+ActionController::MissingExactTemplate (UsersController#index is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.4.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
 actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
 actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
 actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
@@ -1102,7 +1184,11 @@ warden (1.2.9) lib/warden/manager.rb:34:in `catch'
 warden (1.2.9) lib/warden/manager.rb:34:in `call'
 rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
 rack (2.2.7) lib/rack/etag.rb:27:in `call'
+<<<<<<< HEAD
 rack (2.2.7) lib/rack/conditional_get.rb:40:in `call'
+=======
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
 rack (2.2.7) lib/rack/head.rb:12:in `call'
 actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
 actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
@@ -1147,6 +1233,7 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/inventories" for 127.0.0.1 at 2023-05-04 08:11:39 +0300
 Processing by InventoriesController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
@@ -1198,6 +1285,79 @@ Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.1ms | Allocations: 2351)
 
   
 ActionController::MissingExactTemplate (InventoriesController#new is missing a template for request formats: text/html):
+=======
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:45:36 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 499)
+  Rendered layout layouts/application.html.erb (Duration: 198.9ms | Allocations: 54451)
+Completed 200 OK in 216ms (Views: 201.8ms | ActiveRecord: 1.3ms | Allocations: 63006)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-05-04 07:45:38 +0300
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 18ms (ActiveRecord: 0.2ms | Allocations: 5606)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:45:38 +0300
+Processing by UsersController#index as TURBO_STREAM
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 423)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-04 07:45:38 +0300
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 1147)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 4251)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 6703)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 8256)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-04 07:45:44 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"new@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "new@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 303ms (ActiveRecord: 0.2ms | Allocations: 3972)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-04 07:45:45 +0300
+Processing by UsersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2637)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 4251)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 07:45:50 +0300
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3079)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 5554)
+Completed 200 OK in 33ms (Views: 14.2ms | ActiveRecord: 0.8ms | Allocations: 13928)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-05-04 07:45:52 +0300
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 16ms (ActiveRecord: 0.5ms | Allocations: 17478)
+
+
+  
+ActionController::MissingExactTemplate (RecipesController#new is missing a template for request formats: text/html):
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
   
 actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
 actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
@@ -1281,6 +1441,7 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/inventories" for 127.0.0.1 at 2023-05-04 10:08:05 +0300
 Processing by InventoriesController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
@@ -6575,5 +6736,44 @@ Processing by FoodsController#new as HTML
   Rendered foods/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1579)
   Rendered layout layouts/application.html.erb (Duration: 37.3ms | Allocations: 16707)
 Completed 200 OK in 61ms (Views: 39.8ms | ActiveRecord: 1.7ms | Allocations: 33200)
+=======
+Started GET "/recipes/new" for 127.0.0.1 at 2023-05-04 07:46:20 +0300
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 19.6ms | Allocations: 5032)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 7747)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.1ms | Allocations: 10040)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-05-04 07:46:59 +0300
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Traditional Dish", "preparation"=>"10", "cooking"=>"25", "description"=>"Spicy food", "public"=>"1"}, "commit"=>"Add Recipe"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :public. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x00007fc559948da8>, params: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"Traditional Dish", "preparation"=>"10", "cooking"=>"25", "description"=>"Spicy food", "public"=>"1"}, "commit"=>"Add Recipe", "controller"=>"recipes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+  [1m[36mRecipe Create (1.3ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "name", "preparation", "cooking", "description", "plublic", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["name", "Traditional Dish"], ["preparation", "2000-01-01 10:00:00"], ["cooking", nil], ["description", "Spicy food"], ["plublic", nil], ["created_at", "2023-05-04 04:46:59.205337"], ["updated_at", "2023-05-04 04:46:59.205337"]]
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 43ms (ActiveRecord: 3.2ms | Allocations: 10943)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 07:46:59 +0300
+Processing by RecipesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 890)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3286)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 5007)
+>>>>>>> 796435c3890b66aad019c71220804eeb64bdac40
 
 

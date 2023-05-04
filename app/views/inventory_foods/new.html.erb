@@ -18,8 +18,7 @@
           <%= form.label :food_id, class: 'font-medium block mb-2' %>
           <%= form.select :food_id, options_from_collection_for_select(@available_food, "id", "name"), {}, { class: "border rounded" } %>
         </div>
-        <%= form.submit "Submit", class: 'text-sm px-4 py-2 bg-transparent hover:bg-teal-500 text-teal-700 max-w-fit font-semibold hover:text-white border border-teal-500 hover:border-transparent rounded' %>
-    
+        <%= form.submit "Submit", class: '' %>
       </div>
     <% end %>
   </div>

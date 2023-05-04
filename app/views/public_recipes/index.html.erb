@@ -1,25 +1,17 @@
-<section>
-<ul class="list-group">
-  <li class="list-group-item" aria-current="true">
-  <h2>Public Recipes</h2>
-  </li>
-  <% @recipes.each do |recipe| %>
-    <li class="list-group-item shadow-sm justify-content-between align-items-center mb-3">
-      <div class="d-flex justify-content-between">
-        <div class="d-flex flex-column mb-3">
-        <h4 class="linkz"><%= link_to recipe.name, recipe_path(recipe) %></h4>
-        <p>By: <%= recipe.user.name %></p>
-        <%
-=begin%>
- </div>
-        <div class="d-flex flex-column mb-3">
-        <p>Total food items: <%= recipe.all_food_items %></p>
-        <p>Total price: <%= number_to_currency(recipe.total_price) %></p>
-        </div> 
-<%
-=end%>
-      </div>
-    </li>
+<div class="flex flex-col container mx-auto min-w-full">
+  <h1 class="font-bold text-4xl mb-6">All Recipes</h1>
+  <% if @recipes.empty? %>
+    <p class="border p-7 border-yellow-400 bg-yellow-200 font-medium">No public recipes.</p>
+  <% else %>
+    <div class="max-w-sm w-full min-w-full lg:max-w-full flex mb-4">
+  <div class="w-1/3 border border-r-0 border-gray-400 bg-white rounded-l p-4 flex flex-col justify-between leading-normal">
+    <%= link_to public_recipe.name, recipe_path(public_recipe.id), class: "text-gray-900 font-bold text-xl mb-2" %>
+    <h3 class="text-gray-900 font-bold"> <%= public_recipe.user.name %> </h3>
+  </div>
+  <div class="w-2/3 border border-l-0 border-gray-400 bg-white rounded-r p-4 flex flex-col justify-between leading-normal">
+    <p class="text-gray-700 text-base">Total food items: <%= count_items(public_recipe.foods)%> </p>
+    <p class="text-gray-700 text-base">Total food items: $<%= total_price(public_recipe)%> </p>
+  </div>
+</div>
   <% end %>
-</ul>
-</section>
+</div>

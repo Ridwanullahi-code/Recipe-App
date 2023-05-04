@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_122804) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_081826) do
   create_table "foods", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
@@ -52,8 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_122804) do
   create_table "recipes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
-    t.time "preparation"
-    t.time "cooking"
+    t.integer "preparation"
+    t.integer "cooking"
     t.text "description"
     t.boolean "plublic"
     t.datetime "created_at", null: false

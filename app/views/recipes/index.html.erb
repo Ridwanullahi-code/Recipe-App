@@ -3,7 +3,12 @@
   <%= link_to "New recipe", new_recipe_path, class: "add-recipes" %>
   <div id="recipes">
     <% @recipes.each do |recipe| %>
-      <%= recipe.name %>
+      <% if can? :read, recipe %>
+        <h3><%= link_to "#{recipe.name}", recipe_path(recipe.id), class: "links" %></h3>
+        <% if can? :destroy, recipe %>
+          <%= button_to "Delete recipe", recipe_path(recipe.id), class: "delete", method: :delete %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

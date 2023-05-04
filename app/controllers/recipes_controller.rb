@@ -7,10 +7,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @food = current_user.foods
   end
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
+    @foods = @recipe.foods
+    @food = Food.new
   end
 
   def create
@@ -34,9 +37,10 @@ class RecipesController < ApplicationController
   end
 
   private
-def recipe_params
-params.require(:recipe).permit(:name,:preparation,:cooking,:description,:plublic)
-end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation, :cooking, :description, :plublic)
+  end
 
   def set_recipe
     @recipe = Recipe.find(params[:id])

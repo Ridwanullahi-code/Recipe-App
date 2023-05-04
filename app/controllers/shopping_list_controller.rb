@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Shopping List Controller
 class ShoppingListController < ApplicationController
   def index

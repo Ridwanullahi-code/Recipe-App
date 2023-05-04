@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @food = current_user.food
+    @food = current_user.foods
   end
 
   def show

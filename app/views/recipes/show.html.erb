@@ -15,7 +15,9 @@
   <div class="col-md-6 offset-md-10 py-1">
    <%= link_to "Add Food", new_food_path, class: "edit-link btn btn-primary p-0" %>
   </div>
-  <table>
+  <%
+=begin%>
+ <table>
     <thead>
       <tr>
         <th>Food</th>
@@ -34,6 +36,8 @@
           </td>
         </tr>
     <% end %>
-  </table>
+  </table> 
+<%
+=end%>
 </section>
 </div>

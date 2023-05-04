@@ -26,8 +26,13 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory = Inventory.find(params[:id])
     @inventory.destroy
-    flash[:success] = 'Recipe deleted!'
+    flash[:success] = 'inventory deleted!'
     redirect_to inventories_path
+  end
+
+  def show
+    @inventory = Inventory.find_by(id: params[:id])
+    @inventories = Inventory.new
   end
 
   private

@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="inventory"><%= @inventory.name %></h2>
+  <%= form_with model: @inventory, url: inventory_path, method: :post, scope: :inventory do |form| %>
+  <h1 class="header">Add Your Recipe!</h1>
+  <div>
+    <div>
+      <%= form.text_field :name, placeholder: 'Name', class: "form-field"  %>
+    </div>
+  </div>
+
+  <div id="foods">
+  <%= link_to "Add food", new_food_path, class: "add-food" %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+  </table>
+<% end %>
+  </div>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :recipes
   resources :inventories
+  resources :public_recipes
+  resources :foods
 
   root 'user#index'
 

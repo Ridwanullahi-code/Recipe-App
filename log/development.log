@@ -8505,3 +8505,212 @@ puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
   [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/recipes/new" for 127.0.0.1 at 2023-05-04 18:14:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1115)
+  Rendered layout layouts/application.html.erb (Duration: 151.0ms | Allocations: 15327)
+Completed 200 OK in 257ms (Views: 153.8ms | ActiveRecord: 26.3ms | Allocations: 29067)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-05-04 18:15:23 +0100
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"eba", "preparation"=>"1010", "cooking"=>"10", "description"=>"lovely", "plublic"=>"1"}, "commit"=>"Add Recipe"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :plublic. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x0000025c8b207a08>, params: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"eba", "preparation"=>"1010", "cooking"=>"10", "description"=>"lovely", "plublic"=>"1"}, "commit"=>"Add Recipe", "controller"=>"recipes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mRecipe Create (10.9ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "name", "preparation", "cooking", "description", "public", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["name", "eba"], ["preparation", nil], ["cooking", "10:00:00"], ["description", "lovely"], ["public", nil], ["created_at", "2023-05-04 17:15:23.895534"], ["updated_at", "2023-05-04 17:15:23.895534"]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 52ms (ActiveRecord: 15.1ms | Allocations: 7332)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 18:15:23 +0100
+Processing by RecipesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (3.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  Rendered recipes/index.html.erb within layouts/application (Duration: 70.7ms | Allocations: 6793)
+  Rendered layout layouts/application.html.erb (Duration: 90.0ms | Allocations: 9172)
+Completed 200 OK in 111ms (Views: 87.0ms | ActiveRecord: 5.6ms | Allocations: 11449)
+
+
+Started GET "/foods" for 127.0.0.1 at 2023-05-04 18:16:44 +0100
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (3.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/foods/index.html.erb:16
+  Rendered foods/_food.html.erb (Duration: 1.5ms | Allocations: 453)
+  Rendered foods/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 4935)
+  Rendered layout layouts/application.html.erb (Duration: 71.4ms | Allocations: 19156)
+Completed 200 OK in 108ms (Views: 66.5ms | ActiveRecord: 11.5ms | Allocations: 29096)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 18:16:57 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  Rendered recipes/index.html.erb within layouts/application (Duration: 68.5ms | Allocations: 10824)
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 13283)
+Completed 200 OK in 132ms (Views: 91.7ms | ActiveRecord: 8.0ms | Allocations: 17264)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-05-04 18:17:29 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1003)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 3255)
+Completed 200 OK in 46ms (Views: 34.1ms | ActiveRecord: 0.6ms | Allocations: 5153)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-05-04 18:17:44 +0100
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"SPICE", "preparation"=>"10", "cooking"=>"29", "description"=>"beaut", "plublic"=>"1"}, "commit"=>"Add Recipe"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :plublic. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x0000025c8bb2ea50>, params: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"SPICE", "preparation"=>"10", "cooking"=>"29", "description"=>"beaut", "plublic"=>"1"}, "commit"=>"Add Recipe", "controller"=>"recipes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "name", "preparation", "cooking", "description", "public", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["name", "SPICE"], ["preparation", "10:00:00"], ["cooking", nil], ["description", "beaut"], ["public", nil], ["created_at", "2023-05-04 17:17:44.093781"], ["updated_at", "2023-05-04 17:17:44.093781"]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 36ms (ActiveRecord: 3.1ms | Allocations: 5193)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 18:17:44 +0100
+Processing by RecipesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  Rendered recipes/index.html.erb within layouts/application (Duration: 44.3ms | Allocations: 5680)
+  Rendered layout layouts/application.html.erb (Duration: 64.9ms | Allocations: 7932)
+Completed 200 OK in 80ms (Views: 65.3ms | ActiveRecord: 2.3ms | Allocations: 9670)
+
+
+Started DELETE "/recipes/14" for 127.0.0.1 at 2023-05-04 18:17:47 +0100
+Processing by RecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"14"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:45:in `set_recipe'
+  [1m[36mCACHE Recipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:33:in `destroy'
+  [1m[36mRecipeFood Load (4.5ms)[0m  [1m[34mSELECT "recipe_foods".* FROM "recipe_foods" WHERE "recipe_foods"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/controllers/recipes_controller.rb:33:in `destroy'
+  [1m[36mRecipe Destroy (3.4ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/recipes_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:33:in `destroy'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 284ms (ActiveRecord: 12.0ms | Allocations: 14456)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 18:17:47 +0100
+Processing by RecipesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  Rendered recipes/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 4566)
+  Rendered layout layouts/application.html.erb (Duration: 52.3ms | Allocations: 6925)
+Completed 200 OK in 62ms (Views: 53.1ms | ActiveRecord: 2.0ms | Allocations: 8802)
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2023-05-04 19:15:53 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (16.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (Duration: 95.0ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 238.4ms | Allocations: 3172)
+Completed 200 OK in 1416ms (Views: 287.4ms | ActiveRecord: 113.3ms | Allocations: 8044)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2023-05-04 19:16:21 +0100
+Processing by RecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"garlic stew", "preparation"=>"10", "cooking"=>"10", "description"=>"beaut like the fench says", "plublic"=>"1"}, "commit"=>"Add Recipe"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :plublic. Context: { controller: RecipesController, action: create, request: #<ActionDispatch::Request:0x0000025c8d06e6b8>, params: {"authenticity_token"=>"[FILTERED]", "recipe"=>{"name"=>"garlic stew", "preparation"=>"10", "cooking"=>"10", "description"=>"beaut like the fench says", "plublic"=>"1"}, "commit"=>"Add Recipe", "controller"=>"recipes", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mRecipe Create (25.4ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "name", "preparation", "cooking", "description", "public", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["name", "garlic stew"], ["preparation", "10:00:00"], ["cooking", "10:00:00"], ["description", "beaut like the fench says"], ["public", nil], ["created_at", "2023-05-04 18:16:21.936474"], ["updated_at", "2023-05-04 18:16:21.936474"]]
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/recipes_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/recipes
+Completed 302 Found in 318ms (ActiveRecord: 36.0ms | Allocations: 4983)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-05-04 19:16:22 +0100
+Processing by RecipesController#index as TURBO_STREAM
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (8.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/index.html.erb:5
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recipes/index.html.erb:9
+  Rendered recipes/index.html.erb within layouts/application (Duration: 242.6ms | Allocations: 5743)
+  Rendered layout layouts/application.html.erb (Duration: 369.0ms | Allocations: 7994)
+Completed 200 OK in 518ms (Views: 413.5ms | ActiveRecord: 11.3ms | Allocations: 9738)
+
+

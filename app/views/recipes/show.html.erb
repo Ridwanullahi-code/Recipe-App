@@ -2,10 +2,10 @@
   <h2 class="recipe"><%= @recipe.name %></h2>
   <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation%> min(s)</h3>
   <div class="public">
-    <% if @recipe.plublic %>
+    <% if @recipe.public %>
       <p>Public <i class="fa-solid fa-toggle-on"></i></p>
-    <% elsif !@recipe.plublic %>
-      <p class="public-p"><%= @recipe.plublic %><i class="fa-solid fa-toggle-off"></i></p>
+    <% elsif !@recipe.public %>
+      <p class="public-p"><%= @recipe.public %><i class="fa-solid fa-toggle-off"></i></p>
     <% end %>
   </div>
   <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking %> min(s)</h3>
@@ -36,7 +36,7 @@
           </td>
         </tr>
     <% end %>
-  </table> 
+  </table>
 <%
 =end%>
 </section>

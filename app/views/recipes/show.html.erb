@@ -1,78 +1,77 @@
-<div class="container">
-  <h2 class="recipe"><%= @recipe.name %></h2>
-  <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation_time%> min(s)</h3>
-  <div class="public">
-    <% if @recipe.public %>
-      <p>Public <i class=""></i></p>
-    <% elsif !@recipe.public %>
-      <p class="public-p"><%= @recipe.public %><i class=""></i></p>
-    <% end %>
-  </div>
-  <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking_time %> min(s)</h3>
-  <h3 class="recipe-specs">Step by Step Description </h3>
-  <p><%= @recipe.description %></p>
-   <%= button_to toogle_public_path(@recipe.id), method: :patch do %>
-                <label for="toogleA" class="">
-                  <!-- toggle -->
-                  <div class="relative">
-                    <!-- input -->
-                    <input id="toogleA" type="checkbox" class="sr-only" <%='checked' if @recipe.public %>/>
-                    <!-- line -->
-                    <div class=""></div>
-                    <!-- dot -->
-                    <div class=""></div>
-                  </div>
-                  <!-- label -->
-                  <div class="">
-                    Public
-                  </div>
-                </label>
-              <% end %>
-  <section class="">
-  <div class="">
-   <div class="">
-      <% if user_signed_in? %>
-        <button type="" class="" @click="open = true">Generate Shopping List</button>
-      <% end %>
-      <% if @recipe.user == @current_user %>
-        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: ""%>
+<div class="display-recipe">
+  <h2 class="recipe-title"><%= @recipe.name %></h2>
+  <div class="recipe-details">
+
+  <div class="recipe-info">
+    <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation_time %> min(s)</h3>
+
+    <div class="public">
+      <% if @recipe.public %>
+        <p>Public <i class=""></i></p>
+      <% elsif !@recipe.public %>
+        <p class="public-p"><%= @recipe.public %><i class=""></i></p>
       <% end %>
     </div>
+
+    <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking_time %> min(s)</h3>
   </div>
-
-
-<table class="">
-        <thead class="">
-          <tr class="">
-            <th class="">Food</th>
-            <th class="">Quantity</th>
-            <th class="">Value</th>
-            <% if @recipe.user == current_user %>
-              <th class="">Action</th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody><%= render partial:"recipe_food", collection: @recipe_foods %>
-        </table>
-        <% if user_signed_in? %>
-        <div class=" h-full" style="" x-show="open">
-          <div class="" @click.away="open = false">
-  <%= form_with url: shopping_list_path, method: :get, local: true, html: {"data-turbo": "false"} do |form| %>
-    <div class="">
-      <h1 class="">New Shopping List</h1>
-      <div class="hidden">
-        <%= form.label :recipe_id, class: '' %>
-        <%= form.text_field :recipe_id, value: @recipe.id %>
-      </div>
-      <div>
-        <%= form.label :inventory_id, class: '' %>
-        <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name"), {}, { class: "" } %>
-      </div>
-      <%= form.submit "Submit", class: '' %>
-    </div>
+  <div class="form-group">
+  <%= button_to toogle_public_path(@recipe.id), method: :patch, class: "checkbox-apple" do %>
+    <input class="yep sr-only" id="toogleA" type="checkbox" <%='checked' if @recipe.public %>/>
+    <label for="toogleA"></label>
+    <span class="checkbox-label">Public</span>
   <% end %>
 </div>
+  </div>
+
+  <h3 class="recipe-specs">Step by Step Description: </h3><br>
+  <p><%= @recipe.description %></p><br>
+
+  <div class="recipe-buttons">
+    <% if user_signed_in? %>
+      <button type="" class="" @click="open = true">Generate Shopping List</button>
+    <% end %>
+
+    <% if @recipe.user == @current_user %>
+      <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: ""%>
+    <% end %>
+  </div>
+
+  <table class="recipe-table">
+    <thead class="">
+      <tr class="">
+        <th class="">Food</th>
+        <th class="">Quantity</th>
+        <th class="">Value</th>
+        <% if @recipe.user == current_user %>
+          <th class="">Action</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "recipe_food", collection: @recipe_foods %>
+    </tbody>
+  </table>
+
+  <% if user_signed_in? %>
+    <div class="modal" x-show="open" @click.away="open = false">
+      <%= form_with url: shopping_list_path, method: :get, local: true, html: {"data-turbo": "false"} do |form| %>
+        <div class="modal-content">
+          <h1 class="">New Shopping List</h1>
+
+          <div class="hidden">
+            <%= form.label :recipe_id, class: '' %>
+            <%= form.text_field :recipe_id, value: @recipe.id %>
+          </div>
+
+          <div>
+            <%= form.label :inventory_id, class: '' %>
+            <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name"), {}, { class: "" } %>
+          </div>
+
+          <%= form.submit "Submit", class: '' %>
         </div>
       <% end %>
-</section>
+    </div>
+  <% end %>
 </div>

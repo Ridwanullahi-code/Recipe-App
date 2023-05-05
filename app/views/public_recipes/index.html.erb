@@ -1,28 +1,23 @@
-
-<section class="publicindex">
-<ul class="list-group">
-  <li class="list-group-item" aria-current="true">
-  <h2>Public Recipes</h2>
-  </li>
+<section class="recipes public">
   <% if @public_recipes.empty? %>
-    <p class="">No public recipes.</p>
+    <p class="empty-recipes">No public recipes.</p>
   <% else %>
-  <% @public_recipes.each do |recipe| %>
-    <li class="">
-      <div class="jusify">
-        <div class="d-flex flex-column mb-3">
-        <h4 class="linkz"><%= link_to recipe.name, recipe_path(recipe) %></h4>
-        <p>By: <%= recipe.user.name %></p>
+    <% @public_recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="recipe-desc slow">
+          <div class="foodownercombo">
+          <h4 class="linkz"><%= link_to recipe.name, recipe_path(recipe) %></h4>
+          <p class="usernames">By: <%= recipe.user.name %></p>
+          </div>
+          <div class="totalsss">
+          <p class="totalfood"> Total food items: <%= recipe.all_food_items %></p>
+          <p class="totalfood">Total price: <%= number_to_currency(recipe.total_price) %></p>
+          </div>
         </div>
-        <div class="d-flex flex-column mb-3">
-        <p>Total food items: <%= recipe.all_food_items %></p>
-        <p>Total price: <%= number_to_currency(recipe.total_price) %></p>
+        <div class="recipe-title-delete">
+          <h4 class="linkz"></h4>
         </div>
       </div>
-    </li>
-  <% end %>
     <% end %>
-</ul>
+  <% end %>
 </section>
-</body>
-

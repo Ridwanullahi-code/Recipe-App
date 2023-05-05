@@ -1,43 +1,108 @@
-<div class="container">
-  <h2 class="recipe"><%= @recipe.name %></h2>
-  <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation%> min(s)</h3>
-  <div class="public">
-    <% if @recipe.public %>
-      <p>Public <i class="fa-solid fa-toggle-on"></i></p>
-    <% elsif !@recipe.public %>
-      <p class="public-p"><%= @recipe.public %><i class="fa-solid fa-toggle-off"></i></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Public Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+<div class="display-recipe">
+  <h2 class="recipe-title"><%= @recipe.name %></h2>
+  <div class="recipe-details">
+
+  <div class="recipe-info">
+    <h3 class="recipe-specs">Preparation time: <%= @recipe.preparation_time %> min(s)</h3>
+
+    <div class="public">
+      <% if @recipe.public %>
+        <p>Public <i class=""></i></p>
+      <% elsif !@recipe.public %>
+        <p class="public-p"><%= @recipe.public %><i class=""></i></p>
+      <% end %>
+    </div>
+
+    <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking_time %> min(s)</h3>
+  </div>
+  <div class="form-group">
+  <%= button_to toogle_public_path(@recipe.id), method: :patch, class: "checkbox-apple" do %>
+    <input class="yep sr-only" id="toogleA" type="checkbox" <%='checked' if @recipe.public %>/>
+    <label for="toogleA"></label>
+    <span class="checkbox-label">Public</span>
+  <% end %>
+</div>
+  </div>
+
+  <h3 class="recipe-specs">Step by Step Description: </h3><br>
+  <p><%= @recipe.description %></p><br>
+
+  <div class="recipe-buttons">
+    <% if user_signed_in? %>
+      <button type="" class="open-button">Generate Shopping List</button>
+    <% end %>
+
+    <% if @recipe.user == @current_user %>
+      <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: ""%>
     <% end %>
   </div>
-  <h3 class="recipe-specs">Cooking time: <%= @recipe.cooking %> min(s)</h3>
-  <h3 class="recipe-specs">Step by Step Description </h3>
-  <p><%= @recipe.description %></p>
-  <section class="containerz px-5 mt-5">
-  <div class="col-md-6 offset-md-10 py-1">
-   <%= link_to "Add Food", new_food_path, class: "edit-link btn btn-primary p-0" %>
-  </div>
-  <%
-=begin%>
- <table>
-    <thead>
-      <tr>
-        <th>Food</th>
-        <th>Measurement</th>
-        <th>Unit Price</th>
-        <th>Action</th>
+
+  <table class="recipe-table">
+    <thead class="">
+      <tr class="">
+        <th class="">Food</th>
+        <th class="">Quantity</th>
+        <th class="">Value</th>
+        <% if @recipe.user == current_user %>
+          <th class="">Action</th>
+        <% end %>
       </tr>
     </thead>
-    <% @foods.each do |food| %>
-      <tr>
-          <th><%= food.name %></th>
-          <td><%= food.measurement %></td>
-          <td><%= number_to_currency(food.price) %></td>
-          <td>
-          <%= button_to "Delete", food_path(food), class: "border border-light rounded-pill", method: :delete, data: { confirm: "Are you sure about delete #{food.name}?" } %>
-          </td>
-        </tr>
-    <% end %>
+    <tbody>
+      <%= render partial: "recipe_food", collection: @recipe_foods %>
+    </tbody>
   </table>
-<%
-=end%>
-</section>
+
+  <% if user_signed_in? %>
+    <div class="modal">
+      <%= form_with url: shopping_list_path, method: :get, local: true, html: { "data-turbo": "false" } do |form| %>
+        <div class="form-container  shopping-list">
+          <h1 class="form-header">New Shopping List</h1>
+
+          <div class="form-group">
+            <%= form.text_field :recipe_id, value: @recipe.id, class: "form-input", type: "hidden" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name"), { prompt: "Select inventory" }, { class: "form-input" } %>
+          </div>
+
+          <%= form.submit "Submit", class: "form-submit" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
+<script>
+  const test = document.querySelector(".open-button")
+const shoppingList = document.querySelector(".shopping-list")
+document.addEventListener("DOMContentLoaded", () => {
+    test.addEventListener("click", (e) => {
+      e.preventDefault()
+      console.log("name")
+      if (shoppingList.classList.contains("show")) {
+        shoppingList.classList.remove("show")
+      } else {
+        shoppingList.classList.add("show")
+      }
+    })
+  })
+
+</script>
+  </body>
+</html>
+
+
+

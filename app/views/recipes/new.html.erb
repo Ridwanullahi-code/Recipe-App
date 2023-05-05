@@ -1,33 +1,30 @@
+<div class="form">
+  <%= form_with model: @recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |form| %>
+    <h1 class="head-title">Add Your Recipe!</h1>
 
-<div class="container">
-
-<%= form_with model: @recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |form| %>
-  <h1 class="header">Add Your Recipe!</h1>
-  <div>
-    <div>
-      <%= form.text_field :name, placeholder: 'Name', class: "form-field"  %>
+    <div class="form-group">
+      <%= form.text_field :name, placeholder: 'Name', class: "form--input" %>
     </div>
 
-    <div>
-      <%= form.number_field :preparation, placeholder: 'Preparation time (mins)', class: "form-field"  %>
+    <div class="form-group">
+      <%= form.number_field :preparation_time, placeholder: 'Preparation time (mins)', class: "form--input" %>
     </div>
 
-     <div>
-      <%= form.number_field :cooking, placeholder: 'Cooking time (mins)', class: "form-field"  %>
+    <div class="form-group">
+      <%= form.number_field :cooking_time, placeholder: 'Cooking time (mins)', class: "form--input" %>
     </div>
 
-    <div>
-      <%= form.text_area :description, placeholder: 'Description', rows: 12,  class: "form-field" %>
+    <div class="form-group">
+      <%= form.text_area :description, placeholder: 'Description', rows: 12, class: "form--input" %>
     </div>
 
-     <div>
+    <div class="form-group">
       <%= form.label :public %>
-      <%= form.check_box :plublic %>
+      <%= form.check_box :public %>
     </div>
 
-
-      <%= form.submit "Add Recipe", class: "submit recipe" %>
-
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= form.submit "Add Recipe", class: "form--submit" %>
+    </div>
+  <% end %>
 </div>

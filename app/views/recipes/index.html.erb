@@ -1,14 +1,20 @@
-<h1 class="recipes_header">Recipes</h1>
-<div class="recipe">
-  <%= link_to "New recipe", new_recipe_path, class: "add-recipes" %>
-  <div id="recipes">
+<div class="display-recipe">
+<div class="recipe-title">
+  <h1 class="recipes_header">Recipes</h1>
+  <%= link_to "New recipe", new_recipe_path, class: "add-button" %>
+</div>
+  <div class="recipes">
     <% @recipes.each do |recipe| %>
       <% if can? :read, recipe %>
-        <h3><%= link_to "#{recipe.name}", recipe_path(recipe.id), class: "links" %></h3>
-        <p><%= recipe.description %></p>
-        <% if can? :destroy, recipe %>
-          <%= button_to "Delete recipe", recipe_path(recipe.id), class: "delete", method: :delete %>
-        <% end %>
+        <div class="recipe-item">
+        <div class="recipe-title-delete">
+          <h2><%= link_to recipe.name, recipe_path(recipe), class: "links" %></h2>
+          <% if can? :destroy, recipe %>
+            <%= button_to "Delete recipe", recipe_path(recipe), class: "delete-button", method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } %>
+          <% end %>
+          </div>
+          <p class='recipe-desc'><%= recipe.description %></p>
+        </div>
       <% end %>
     <% end %>
   </div>

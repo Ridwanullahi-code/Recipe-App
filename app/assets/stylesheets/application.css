@@ -433,3 +433,71 @@ footer {
   text-decoration: none;
   color: #eeb272;
 }
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.food-table th,
+.food-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.food-table th {
+  background-color: #1c3c43;
+  color: white;
+}
+
+.food-table tbody tr:nth-child(even) {
+  background-color: #0d1c21;
+  color: white;
+}
+
+.food-table tbody tr:nth-child(odd) {
+  background-color: #26454b;
+  color: white;
+}
+
+.food-table a {
+  text-decoration: none;
+  color: #eeb272;
+}
+
+.food-table a:hover {
+  color: white;
+}
+
+.add-food {
+  display: block;
+  width: 150px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #2d545e;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.add-food:hover {
+  background-color: #206e82;
+  transition: 0.3s ease;
+}
+
+.food-table .delete-link {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+}
+
+.food-table .delete-link:hover {
+  background-color: #c0392b;
+}

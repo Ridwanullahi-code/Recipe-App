@@ -812,6 +812,12 @@ footer {
   display: none;
 }
 
+
+.show {
+  display: block;
+}
+
+
 .open-button {
   cursor: pointer;
 }

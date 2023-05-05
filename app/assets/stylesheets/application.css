@@ -805,6 +805,7 @@ footer {
 .show {
   display: block;
 }
+
 .open-button {
   cursor: pointer;
 }

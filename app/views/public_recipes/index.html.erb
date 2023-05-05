@@ -7,11 +7,11 @@
         <div class="recipe-desc slow">
           <div class="foodownercombo">
           <h4 class="linkz"><%= link_to recipe.name, recipe_path(recipe) %></h4>
-          <p>By: <%= recipe.user.name %></p>
+          <p class="usernames">By: <%= recipe.user.name %></p>
           </div>
           <div class="totalsss">
-          <p>Total food items: <%= recipe.all_food_items %></p>
-          <p>Total price: <%= number_to_currency(recipe.total_price) %></p>
+          <p class="totalfood"> Total food items: <%= recipe.all_food_items %></p>
+          <p class="totalfood">Total price: <%= number_to_currency(recipe.total_price) %></p>
           </div>
         </div>
         <div class="recipe-title-delete">

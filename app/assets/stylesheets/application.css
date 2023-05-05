@@ -74,3 +74,98 @@ footer {
   padding: 4em 0;
   align-items: center;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.sign-up {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 0;
+}
+
+.form {
+  background-color: white;
+  padding: 3.125em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 40%;
+  margin: 10% 0;
+}
+
+.form:hover {
+  box-shadow: 20px 20px 45px -1px rgba(0,0,0,0.55);
+  transition: 0.4s ease-in;
+}
+
+.head-title {
+  color: rgb(77, 75, 75);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  font-weight: bold;
+  font-size: x-large;
+  margin-bottom: 0.5em;
+}
+
+.form--input {
+  width: 300px;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+  outline: none;
+}
+
+.form label {
+  color: #2d545e;
+}
+
+.form--input:focus {
+  border: 1px solid #2d545e;
+  outline: none;
+}
+
+.form--submit {
+  width: 100%;
+  margin: 10px 0;
+  padding: 0.625em;
+  border-radius: 5px;
+  color: white;
+  background-color: #2d545e;
+  border: 1px dashed #2d545e;
+  cursor: pointer;
+}
+
+.form--submit:hover {
+  color: #2d545e;
+  background-color: white;
+  border: 1px solid #2d545e;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.links a {
+  text-decoration: none;
+  color: #2d545e;
+}
+.links a:hover {
+  text-decoration: none;
+  color: #2c9cb8;
+  letter-spacing: 1px;
+  transition: 0.3s ease-in-out;
+}
+

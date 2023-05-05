@@ -2,7 +2,7 @@
  <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |form| %>
  
  <% if @food.errors.any? %>
-  <div class="alert alert-danger">
+  <div class="">
   <ul>
   <% @food.errors.full_messages.each do |message| %>
   <li><%= message %></li>
@@ -10,26 +10,26 @@
   </ul>
   </div>
  <% end %>
- <h2 class="shadow-sm p-3 bg-body-tertiary rounded text-center">Add New Food</h2>
+ <h2 class="">Add New Food</h2>
 
- <div class="mb-3">
-   <%= form.label :name, class: "form-label" %>
-   <%= form.text_field :name, class: "form-control" %>
+ <div class="">
+   <%= form.label :name, class: "" %>
+   <%= form.text_field :name, class: "" %>
  </div>
 
- <div class="mb-3">
+ <div class="">
    <%= form.label :measurement %>
-   <%= form.text_field :measurement, class: "form-control" %>
+   <%= form.text_field :measurement, class: "" %>
  </div>
 
- <div class="mb-3">
+ <div class="">
    <%= form.label :price %>
-   <%= form.text_field :price, class: "form-control" %>
+   <%= form.text_field :price, class: "" %>
  </div>
 
  <div>
- <%= form.submit "Save Food", class: "btn btn-primary" %>
- <%= link_to "Cancel", foods_path, class: "btn btn-primary cancel-link" %>
+ <%= form.submit "", class: "" %>
+ <%= link_to "Cancel", foods_path, class: "" %>
  </div>
  
  <% end %>

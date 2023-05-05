@@ -1,10 +1,10 @@
 <tr>
-  <td class="border px-4 py-2"> <%= recipe_food.food.name %></td>
-  <td class="border px-4 py-2"><%= recipe_food.quantity %> <%= recipe_food.food.measurement %></td>
-  <td class="border px-4 py-2"><%= recipe_food.food.price * recipe_food.quantity %></td>
+  <td class=""> <%= recipe_food.food.name %></td>
+  <td class=""><%= recipe_food.quantity %> <%= recipe_food.food.measurement %></td>
+  <td class=""><%= recipe_food.food.price * recipe_food.quantity %></td>
   <% if recipe_food.recipe.user == current_user %>
-    <td class="border px-4 py-2 ">
-      <div class="flex flex-row justify-around min-h-full gap-2">
+    <td class="">
+      <div class="">
         <%= link_to "Remove", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), data: { "turbo-method": :delete }, class: ""%>
       </div>
     </td>

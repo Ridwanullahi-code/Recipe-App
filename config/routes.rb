@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   match 'recipes/:recipe_id' => 'recipes#toogle_public', as: :toogle_public, via: :patch
-  match 'public_recipes' => 'recipes#public_recipes', as: :public_recipes, via: :get
+  match 'public_recipes' => 'public_recipes#index', as: :public_recipes, via: :get
 
   get 'shopping_list', to: "shopping_list#index"
 

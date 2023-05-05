@@ -812,12 +812,6 @@ footer {
   display: none;
 }
 
-
-.show {
-  display: block;
-}
-
-
 .open-button {
   cursor: pointer;
 }
@@ -833,22 +827,6 @@ footer {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-.hidden {
-  display: none;
-}
-
-.close-button {
-  top: 30px;
-  left: 1000px;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 1;
-  position: relative;
 }
 
 .modal-form {

@@ -1,13 +1,76 @@
-.single-recipe,
-.inventories {
-  padding: 10px 20px;
-  margin: 10px 10px;
-  border: 3px solid black;
-  width: 75%;
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Lato:wght@400;900&family=Poppins:wght@100;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.recipe-desc {
+body {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  background-color: #cf985d;
+  color: white;
+  font-family: 'Cabin';
+}
+.nav-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 50px;
+  padding: 30px 10px;
+  background-color: #2d545e;
+}
+
+.btn {
+  color: #e1b382;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #e1b382;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  transition: all 1s;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: -40px;
+  transform: skewX(45deg);
+  background-color: #e1b382;
+  z-index: -1;
+  transition: all 1s;
+}
+
+.btn:hover::before {
+  width: 160%;
+}
+
+footer {
+  margin-top: auto;
+  padding: 50px;
+  background-color: #2d545e;
+}
+
+.public-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4em 0;
+  align-items: center;
 }

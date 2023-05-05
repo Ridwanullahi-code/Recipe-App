@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   get 'users/index'
   devise_for :users
 
-  # resources :recipes
-  # resources :inventories
-  # resources :public_recipes
-  # resources :foods
   resources :foods, except: [:update]
 
   resources :inventories, only: [:index, :show, :destroy, :new, :create] do

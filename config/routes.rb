@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     delete 'foods/:id', to: 'inventory_foods#destroy', as: 'food'
   end
 
-  resources :recipes, only: [:index, :show, :new, :create, :destroy, :put ] do
+  resources :recipes, only: [:index, :show, :new, :create, :destroy, :put, :update] do
     resources :recipe_foods, path: 'food', only: [:destroy, :new, :create]
   end
 

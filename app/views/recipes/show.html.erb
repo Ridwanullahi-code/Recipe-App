@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Public Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
 <div class="display-recipe">
   <h2 class="recipe-title"><%= @recipe.name %></h2>
   <div class="recipe-details">
@@ -29,7 +40,7 @@
 
   <div class="recipe-buttons">
     <% if user_signed_in? %>
-      <button type="" class="" @click="open = true">Generate Shopping List</button>
+      <button type="" class="open-button">Generate Shopping List</button>
     <% end %>
 
     <% if @recipe.user == @current_user %>
@@ -54,9 +65,9 @@
   </table>
 
   <% if user_signed_in? %>
-    <div class="modal" x-show="open" @click.away="open = false">
+    <div class="modal">
       <%= form_with url: shopping_list_path, method: :get, local: true, html: { "data-turbo": "false" } do |form| %>
-        <div class="form-container">
+        <div class="form-container  shopping-list">
           <h1 class="form-header">New Shopping List</h1>
 
           <div class="form-group">
@@ -73,3 +84,25 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  const test = document.querySelector(".open-button")
+const shoppingList = document.querySelector(".shopping-list")
+document.addEventListener("DOMContentLoaded", () => {
+    test.addEventListener("click", (e) => {
+      e.preventDefault()
+      console.log("name")
+      if (shoppingList.classList.contains("show")) {
+        shoppingList.classList.remove("show")
+      } else {
+        shoppingList.classList.add("show")
+      }
+    })
+  })
+
+</script>
+  </body>
+</html>
+
+
+

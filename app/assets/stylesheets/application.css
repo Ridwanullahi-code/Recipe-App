@@ -797,3 +797,14 @@ footer {
   border-color: #f5c6cb;
   color: #721c24;
 }
+
+.shopping-list {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.open-button {
+  cursor: pointer;
+}

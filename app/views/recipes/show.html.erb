@@ -55,21 +55,19 @@
 
   <% if user_signed_in? %>
     <div class="modal" x-show="open" @click.away="open = false">
-      <%= form_with url: shopping_list_path, method: :get, local: true, html: {"data-turbo": "false"} do |form| %>
-        <div class="modal-content">
-          <h1 class="">New Shopping List</h1>
+      <%= form_with url: shopping_list_path, method: :get, local: true, html: { "data-turbo": "false" } do |form| %>
+        <div class="form-container">
+          <h1 class="form-header">New Shopping List</h1>
 
-          <div class="hidden">
-            <%= form.label :recipe_id, class: '' %>
-            <%= form.text_field :recipe_id, value: @recipe.id %>
+          <div class="form-group">
+            <%= form.text_field :recipe_id, value: @recipe.id, class: "form-input", type: "hidden" %>
           </div>
 
-          <div>
-            <%= form.label :inventory_id, class: '' %>
-            <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name"), {}, { class: "" } %>
+          <div class="form-group">
+            <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name"), { prompt: "Select inventory" }, { class: "form-input" } %>
           </div>
 
-          <%= form.submit "Submit", class: '' %>
+          <%= form.submit "Submit", class: "form-submit" %>
         </div>
       <% end %>
     </div>

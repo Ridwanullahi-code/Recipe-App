@@ -1,36 +1,33 @@
-<section class="container">
- <%= form_for @food, url: foods_path, local: true, data: { turbo: false }, method: :post do |form| %>
- 
- <% if @food.errors.any? %>
-  <div class="">
-  <ul>
-  <% @food.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
+<div class="form">
+  <%= form_with model: @food, url: foods_path, method: :post, local: true, html: {class: "food-form"} do |form| %>
+    <h2 class="head-title">Add New Food</h2>
+
+    <% if @food.errors.any? %>
+      <div class="form__error">
+        <ul>
+          <% @food.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form__group">
+      <%= form.text_field :name, placeholder: "Name", class: "form--input" %>
+    </div>
+
+    <div class="form__group">
+      <%= form.text_field :measurement, placeholder: "Measurement", class: "form--input" %>
+    </div>
+
+    <div class="form__group">
+      <%= form.text_field :price, placeholder: "Unit Price", class: "form--input" %>
+    </div>
+
+    <div class="form__group">
+      <%= form.submit "Add Food", class: "form--submit" %>
+      <%= link_to "Cancel", foods_path, class: "form-cancel-link" %>
+    </div>
+
   <% end %>
-  </ul>
-  </div>
- <% end %>
- <h2 class="">Add New Food</h2>
-
- <div class="">
-   <%= form.label :name, class: "" %>
-   <%= form.text_field :name, class: "" %>
- </div>
-
- <div class="">
-   <%= form.label :measurement %>
-   <%= form.text_field :measurement, class: "" %>
- </div>
-
- <div class="">
-   <%= form.label :price %>
-   <%= form.text_field :price, class: "" %>
- </div>
-
- <div>
- <%= form.submit "", class: "" %>
- <%= link_to "Cancel", foods_path, class: "" %>
- </div>
- 
- <% end %>
-</section>
+</div>

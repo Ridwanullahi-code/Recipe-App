@@ -1,35 +1,35 @@
-<div class="">
-  <header class="">
-    <h1 class="">
+<div class="inventory-table">
+  <header class="inventory-header">
+    <h1 class="inventory-title">
       <%= @inventory.name %>
     </h1>
     <%=
       link_to "Add food", inventory_foods_new_path(@inventory.id),
-      class: ""
+      class: "add-food"
     %>
   </header>
-  <div class="">
-    <table class="">
-      <thead class="">
-        <tr class="">
-          <th class="">Food</th>
-          <th class="">Quantity</th>
-          <th class="">Actions</th>
+  <div class="table-container">
+    <table class="striped-table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Actions</th>
         </tr>
       </thead>
-      <tbody class="">
+      <tbody>
         <% @inventory.inventory_foods.each do |item| %>
           <tr>
-            <td class="">
+            <td>
               <%= item.food.name %>
             </td>
-            <td class="">
+            <td>
               <%= "#{item.quantity} #{item.food.measurement}" %>
             </td>
-            <td class="">
+            <td>
               <%=
                 button_to "Delete", inventory_food_path(@inventory.id, item.id), method: :delete,
-                class: ""
+                class: "delete-button"
               %>
             </td>
           </tr>

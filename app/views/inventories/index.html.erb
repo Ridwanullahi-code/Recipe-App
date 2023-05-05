@@ -1,15 +1,21 @@
-<h1 class="inventories_header">Inventories</h1>
-<div class="inventory">
-  <%= link_to "New Inventory", new_inventory_path, class: "add-inventories" %>
+<div class="display-inventory">
+  <div class="inventory-title">
+    <h1 class="inventories_header">Inventories</h1>
+    <%= link_to "New Inventory", new_inventory_path, class: "add-button" %>
+  </div>
   <div class="inventories">
     <% @inventories.each do |inventory| %>
-      <%= render inventory %>
-      <div class="show-inventory">
-        <%= link_to "Show this inventory", inventory, class: "action" %>
-      </div>
-      <% if can? :destroy, inventory %>
-                <%= button_to "Remove", inventory, method: :delete, data: { confirm: "Are you sure?" }, class: "actions" %>
+      <% if can? :read, inventory %>
+        <div class="inventory-item">
+          <%= render inventory %>
+          <div class="inventory-actions">
+            <%= link_to "Show this inventory", inventory, class: "action-link" %>
+            <% if can? :destroy, inventory %>
+              <%= button_to "Remove", inventory, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
             <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

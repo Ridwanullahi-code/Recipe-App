@@ -5,6 +5,7 @@ default: &default
   username:  postgres
   password: mystical
 
+
 development:
   <<: *default
   database: Recipe_App_development

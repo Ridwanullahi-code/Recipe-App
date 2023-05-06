@@ -136,6 +136,7 @@ To run the project, execute the following command:
 - **Enhance design.**
 - **Connect to the Database.**
 - **Add API endpoits.**
+- **Create Responsive Interface.**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->

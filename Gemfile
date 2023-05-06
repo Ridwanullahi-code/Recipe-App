@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
 gem 'devise'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'factory_bot_rails'
+gem 'faker'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record

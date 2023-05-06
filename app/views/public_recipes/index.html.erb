@@ -1,8 +1,8 @@
 <section class="recipes public">
-  <% if @public_recipes.empty? %>
+  <% if @recipes.empty? %>
     <p class="empty-recipes">No public recipes.</p>
   <% else %>
-    <% @public_recipes.each do |recipe| %>
+    <% @recipes.each do |recipe| %>
       <div class="recipe-item">
         <div class="recipe-desc slow">
           <div class="foodownercombo">

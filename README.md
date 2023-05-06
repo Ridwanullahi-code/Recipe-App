@@ -81,7 +81,7 @@ Clone this repository to your desired folder:
 ```
  - mkdir my-folder
  - cd my-folder
- - git clone git@github.com:Osoro254Alex/Recipe-app.git
+ - https://github.com/Ridwanullahi-code/Recipe-App.git
  - cd Recipe-app
  - bundle install
  - rails db:create

@@ -8,11 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "index", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+  <header> <%= render partial: "shared/navbar" %></header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <footer>
+      <div>@Aman Worku</div>
+       <div>@Ade179</div>
+        <div>@Ajayi ridwan</div>
+
+    </footer>
+
   </body>
+
 </html>

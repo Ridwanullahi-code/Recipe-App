@@ -61,12 +61,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- PROJECT LINK-->
-
-## :link: Project Link <a name="project link"></a>
-- [Project link](https://github.com/Osoro254Alex/Recipe-app)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## :computer: Getting Started <a name="getting-started"></a>

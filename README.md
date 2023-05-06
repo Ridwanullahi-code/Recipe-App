@@ -57,7 +57,7 @@
 ### Key Features <a name="key-features"></a>
 - We can add, remove, update and display recipe.
 - It has user authentication.
-- It is well designed.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
